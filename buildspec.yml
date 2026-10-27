@@ -1,0 +1,14 @@
+
+version: 0.2
+
+phases:
+  build:
+    commands:
+      - echo "Checking website files"
+      - test -f index.html
+      - aws s3 cp index.html s3://amity-project-hello-world-s3-493116365045-ap-southeast-2-an/index.html
+      - echo "Deployment completed"
+
+artifacts:
+  files:
+    - index.html
